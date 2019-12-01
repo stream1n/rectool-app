@@ -1,5 +1,7 @@
 # Metronic Angular
 
+npm install apollo-angular apollo-cache-inmemory  apollo-client apollo-angular-link-http graphql graphql-tag --save
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
 
 ## Development server
