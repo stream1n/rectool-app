@@ -9,7 +9,7 @@ import {ALL_RESULTS_QUERY, AllResultQueryResponse } from '../../../graphql/graph
   styleUrls: ['./result-list.component.scss']
 })
 export class ResultListComponent implements OnInit {
-
+	displayedColumns = ['trade-id', 'book', 'ccy-pair', 'candidate', 'reference', 'diff'];
 	results: Result[] = [];
 	loading: boolean = true;
 
