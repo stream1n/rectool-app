@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Apollo } from 'apollo-angular';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Result } from '../../../graphql/types';
-import {ALL_RESULTS_QUERY, AllResultQueryResponse } from '../../../graphql/graphql';
+import {DataalertService, RecresultsService} from '../../../core/_base/layout';
 
 @Component({
   selector: 'kt-result-list',
@@ -9,21 +8,21 @@ import {ALL_RESULTS_QUERY, AllResultQueryResponse } from '../../../graphql/graph
   styleUrls: ['./result-list.component.scss']
 })
 export class ResultListComponent implements OnInit {
-	displayedColumns = ['trade-id', 'book', 'ccy-pair', 'candidate', 'reference', 'diff'];
-	results: Result[] = [];
-	loading: boolean = true;
+	displayedColumns = ['run-time', 'trade-id', 'book', 'ccy-pair', 'candidate', 'reference', 'diff'];
+	results: Array<Result>;
 
-	constructor(private apollo: Apollo) {
+	constructor(private dataalertService: DataalertService, private resresultsService: RecresultsService, private changeDetectorRefs: ChangeDetectorRef) {
 	}
 
 	ngOnInit() {
-		this.apollo.watchQuery({
-			query: ALL_RESULTS_QUERY
-		}).valueChanges.subscribe((response: any) => {
-			this.results = response.data.results;
-			this.loading = response.data.loading;
-		});
+		this.results = new Array<Result>();
+		this.dataalertService.getResults().subscribe(results => { this.reactresults(results); });
+		this.resresultsService.getresults();
+	}
 
+	private reactresults(results: Array<Result>) {
+		this.results = results;
+		this.changeDetectorRefs.detectChanges();
 	}
 
 }

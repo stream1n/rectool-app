@@ -2,6 +2,9 @@
 	<div class="col-xl-12">
 		<kt-portlet [class]="'kt-portlet--height-fluid'">
 			<kt-portlet-header [title]="'Results'" [class]="'kt-portlet__head--lg kt-portlet__head--noborder kt-portlet__head--break-sm'">
+				<ng-container ktPortletTools>
+					<kt-result-list-refresh></kt-result-list-refresh>
+				</ng-container>
 			</kt-portlet-header>
 			<kt-portlet-body [class]="'kt-portlet__body--fit'">
 				<kt-result-list></kt-result-list>

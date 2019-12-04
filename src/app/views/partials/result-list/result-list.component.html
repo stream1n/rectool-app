@@ -1,5 +1,8 @@
-<h4 *ngIf="loading">Loading...</h4>
 <mat-table #table [dataSource]="results">
+	<ng-container matColumnDef="run-time">
+		<mat-header-cell *matHeaderCellDef> run-time </mat-header-cell>
+		<mat-cell *matCellDef="let result"> {{result.formattedRecTime}} </mat-cell>
+	</ng-container>
 	<ng-container matColumnDef="trade-id">
 		<mat-header-cell *matHeaderCellDef> trade-id </mat-header-cell>
 		<mat-cell *matCellDef="let result"> {{result.tradeId}} </mat-cell>

@@ -28,6 +28,8 @@ export { SafePipe } from './pipes/safe.pipe';
 export { TimeElapsedPipe } from './pipes/time-elapsed.pipe';
 
 // Services
+export { DataalertService } from './services/data-alert.service';
+export { RecresultsService } from './services/rec-results.service';
 export { DataTableService } from './services/datatable.service';
 export { TranslationService } from './services/translation.service';
 

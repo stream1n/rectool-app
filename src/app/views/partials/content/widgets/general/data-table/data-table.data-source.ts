@@ -79,9 +79,8 @@ export class DataTableDataSource implements DataSource<DataTableItemModel> {
 		queryResults.items = entitiesResult;
 		queryResults.totalCount = totalCount;
 		return queryResults;
-    }
-
-    loadItems(queryParams: QueryParamsModel) {
+	}
+	loadItems(queryParams: QueryParamsModel) {
 		this.loadingSubject.next(true);
 		this.dataTableService.getAllItems().pipe(
 			tap(res => {
@@ -93,7 +92,7 @@ export class DataTableDataSource implements DataSource<DataTableItemModel> {
 			catchError(err => of(new QueryResultsModel([], err))),
 			finalize(() => this.loadingSubject.next(false))
 		).subscribe();
-    }
+	}
 
 	sortArray(_incomingArray: any[], _sortField: string = '', _sortOrder: string = 'asc'): any[] {
 		const httpExtenstion = new HttpExtenstionsModel();

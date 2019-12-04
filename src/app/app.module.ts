@@ -35,7 +35,9 @@ import { ThemeModule } from './views/theme/theme.module';
 import { PartialsModule } from './views/partials/partials.module';
 // Layout Services
 import {
+	DataalertService,
 	DataTableService,
+	RecresultsService,
 	FakeApiService,
 	KtDialogService,
 	LayoutConfigService,
@@ -125,6 +127,8 @@ export function hljsLanguages(): HighlightLanguage[] {
 		MenuConfigService,
 		PageConfigService,
 		KtDialogService,
+		DataalertService,
+		RecresultsService,
 		DataTableService,
 		SplashScreenService,
 		{
