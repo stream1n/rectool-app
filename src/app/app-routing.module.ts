@@ -1,13 +1,27 @@
 // Angular
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-// Components
-import {BaseComponent} from './views/theme/base/base.component';
-import {ErrorPageComponent} from './views/theme/content/error-page/error-page.component';
-// Auth
-import {AuthGuard} from './core/auth';
+
+import {LoginComponent} from '../app/public/login/login.component';
+import {TermsComponent} from '../app/public/terms/terms.component';
+import {PrivacyComponent} from '../app/public/privacy/privacy.component';
+import {PageNotFoundComponent} from '../app/public/page-not-found/page-not-found.component';
+import {AboutComponent} from './public/about/about.component';
+import {TeamComponent} from './public/team/team.component';
+import {ContactComponent} from './public/contact/contact.component';
 
 const routes: Routes = [
+	{ path: 'login', component: LoginComponent },
+	{ path: 'terms', component: TermsComponent },
+	{ path: 'privacy', component: PrivacyComponent },
+	{ path: 'about', component: AboutComponent },
+	{ path: 'team', component: TeamComponent },
+	{ path: 'contact', component: ContactComponent },
+	{ path: '',   redirectTo: 'dashboard', pathMatch: 'full' },
+	{ path: '**', component: PageNotFoundComponent }
+];
+
+/*const routes: Routes = [
 	{path: 'auth', loadChildren: () => import('app/views/pages/auth/auth.module').then(m => m.AuthModule)},
 
 	{
@@ -37,7 +51,7 @@ const routes: Routes = [
 
 	{path: '**', redirectTo: 'error/403', pathMatch: 'full'},
 ];
-
+*/
 @NgModule({
 	imports: [
 		RouterModule.forRoot(routes),

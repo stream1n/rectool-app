@@ -66,6 +66,20 @@ import * as typescript from 'highlight.js/lib/languages/typescript';
 import * as scss from 'highlight.js/lib/languages/scss';
 import * as xml from 'highlight.js/lib/languages/xml';
 import * as json from 'highlight.js/lib/languages/json';
+import { TestComponent } from './test/test.component';
+import { LoginComponent } from './public/login/login.component';
+import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
+import { TermsComponent } from './public/terms/terms.component';
+import { PrivacyComponent } from './public/privacy/privacy.component';
+
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {BaseModule} from './private/base/base.module';
+import { AboutComponent } from './public/about/about.component';
+import { TeamComponent } from './public/team/team.component';
+import { ContactComponent } from './public/contact/contact.component';
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -94,10 +108,11 @@ export function hljsLanguages(): HighlightLanguage[] {
 }
 
 @NgModule({
-	declarations: [AppComponent],
+	declarations: [AppComponent, TestComponent, LoginComponent, PageNotFoundComponent, TermsComponent, PrivacyComponent, AboutComponent, TeamComponent, ContactComponent],
 	imports: [
 		BrowserAnimationsModule,
 		BrowserModule,
+		BaseModule,
 		AppRoutingModule,
 		HttpClientModule,
 		environment.isMockEnabled ? HttpClientInMemoryWebApiModule.forRoot(FakeApiService, {
@@ -118,6 +133,10 @@ export function hljsLanguages(): HighlightLanguage[] {
 		InlineSVGModule.forRoot(),
 		ThemeModule,
 		GraphQLModule,
+		AngularFireModule.initializeApp(environment.firebase),
+		AngularFireAuthModule,
+		AngularFirestoreModule,
+		AngularFireStorageModule
 	],
 	exports: [],
 	providers: [
