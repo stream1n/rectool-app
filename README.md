@@ -1,3 +1,4 @@
+remember to update the Dockerfile and cloudbuild file once dir renamed etc..
 npm install firebase --save
 npm install firebaseui --save
 npm install @angular/fire --save

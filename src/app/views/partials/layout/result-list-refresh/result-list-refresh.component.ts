@@ -15,7 +15,7 @@ export class ResultListRefreshComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	private refreshResults() {
+	public refreshResults() {
 		this.auth.GetUserToken().then((idToken: string) => {
 			this.recresultsService.getresults();
 		});
