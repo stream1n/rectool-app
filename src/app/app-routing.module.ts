@@ -1,16 +1,19 @@
-// Angular
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-
-import {LoginComponent} from '../app/public/login/login.component';
-import {TermsComponent} from '../app/public/terms/terms.component';
-import {PrivacyComponent} from '../app/public/privacy/privacy.component';
-import {PageNotFoundComponent} from '../app/public/page-not-found/page-not-found.component';
+import {LoginComponent} from './public/login/login.component';
+import {TermsComponent} from './public/terms/terms.component';
+import {PrivacyComponent} from './public/privacy/privacy.component';
 import {AboutComponent} from './public/about/about.component';
 import {TeamComponent} from './public/team/team.component';
 import {ContactComponent} from './public/contact/contact.component';
+import {PageNotFoundComponent} from './public/page-not-found/page-not-found.component';
+import {BaseComponent} from './views/theme/base/base.component';
+import {AuthenticationGuard} from './auth/guard/authentication.guard';
+import {ErrorPageComponent} from './views/theme/content/error-page/error-page.component';
 
-const routes: Routes = [
+
+
+/*const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
 	{ path: 'terms', component: TermsComponent },
 	{ path: 'privacy', component: PrivacyComponent },
@@ -19,19 +22,51 @@ const routes: Routes = [
 	{ path: 'contact', component: ContactComponent },
 	{ path: '',   redirectTo: 'dashboard', pathMatch: 'full' },
 	{ path: '**', component: PageNotFoundComponent }
-];
+];*/
 
-/*const routes: Routes = [
-	{path: 'auth', loadChildren: () => import('app/views/pages/auth/auth.module').then(m => m.AuthModule)},
-
+const routes: Routes = [
+	{ path: 'login', component: LoginComponent },
+	{ path: 'terms', component: TermsComponent },
+	{ path: 'privacy', component: PrivacyComponent },
+	{ path: 'about', component: AboutComponent },
+	{ path: 'team', component: TeamComponent },
+	{ path: 'contact', component: ContactComponent },
 	{
 		path: '',
 		component: BaseComponent,
-		canActivate: [AuthGuard],
+		canActivate: [AuthenticationGuard],
 		children: [
 			{
 				path: 'dashboard',
 				loadChildren: () => import('app/views/pages/dashboard/dashboard.module').then(m => m.DashboardModule),
+			},
+			{
+				path: 'mail',
+				loadChildren: () => import('app/views/pages/apps/mail/mail.module').then(m => m.MailModule),
+			},
+			{
+				path: 'ecommerce',
+				loadChildren: () => import('app/views/pages/apps/e-commerce/e-commerce.module').then(m => m.ECommerceModule),
+			},
+			{
+				path: 'ngbootstrap',
+				loadChildren: () => import('app/views/pages/ngbootstrap/ngbootstrap.module').then(m => m.NgbootstrapModule),
+			},
+			{
+				path: 'material',
+				loadChildren: () => import('app/views/pages/material/material.module').then(m => m.MaterialModule),
+			},
+			{
+				path: 'user-management',
+				loadChildren: () => import('app/views/pages/user-management/user-management.module').then(m => m.UserManagementModule),
+			},
+			{
+				path: 'wizard',
+				loadChildren: () => import('app/views/pages/wizard/wizard.module').then(m => m.WizardModule),
+			},
+			{
+				path: 'builder',
+				loadChildren: () => import('app/views/theme/content/builder/builder.module').then(m => m.BuilderModule),
 			},
 			{
 				path: 'error/403',
@@ -51,7 +86,7 @@ const routes: Routes = [
 
 	{path: '**', redirectTo: 'error/403', pathMatch: 'full'},
 ];
-*/
+
 @NgModule({
 	imports: [
 		RouterModule.forRoot(routes),

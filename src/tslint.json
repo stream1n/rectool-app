@@ -12,11 +12,6 @@
       "element",
       "kt",
       "kebab-case"
-    ],
-	  "indent": [
-		  true,
-		  "tabs",
-		  4
-	  ]
+    ]
   }
 }

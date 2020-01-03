@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import {AuthenticationService} from '../../../../../services/auth/authentication.service';
+import {AuthenticationService} from '../../../../../auth/services/authentication.service';
 
 @Component({
 	selector: 'kt-user-profile',

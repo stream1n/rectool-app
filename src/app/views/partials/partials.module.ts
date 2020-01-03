@@ -73,9 +73,8 @@ import {WidgetModule} from './content/widgets/widget.module';
 // SVG inline
 import {InlineSVGModule} from 'ng-inline-svg';
 import {CartComponent} from './layout/topbar/cart/cart.component';
-//  RECTOOL
-import { ResultListComponent } from './result-list/result-list.component';
-import { ResultListRefreshComponent } from './result-list-refresh/result-list-refresh.component';
+import { ResultListRefreshComponent } from './layout/result-list-refresh/result-list-refresh.component';
+import { ResultListComponent } from './layout/result-list/result-list.component';
 
 @NgModule({
 	declarations: [
@@ -112,8 +111,10 @@ import { ResultListRefreshComponent } from './result-list-refresh/result-list-re
 		CartComponent,
 
 		ErrorComponent,
-		ResultListComponent,
+
 		ResultListRefreshComponent,
+
+		ResultListComponent,
 	],
 	exports: [
 		WidgetModule,
@@ -152,8 +153,9 @@ import { ResultListRefreshComponent } from './result-list-refresh/result-list-re
 		CartComponent,
 
 		ErrorComponent,
-		ResultListComponent,
 		ResultListRefreshComponent,
+
+		ResultListComponent,
 	],
 	imports: [
 		CommonModule,

@@ -35,9 +35,7 @@ import { ThemeModule } from './views/theme/theme.module';
 import { PartialsModule } from './views/partials/partials.module';
 // Layout Services
 import {
-	DataalertService,
 	DataTableService,
-	RecresultsService,
 	FakeApiService,
 	KtDialogService,
 	LayoutConfigService,
@@ -56,30 +54,28 @@ import { AuthService } from './core/auth';
 import { HttpUtilsService, LayoutUtilsService, TypesUtilsService } from './core/_base/crud';
 // Config
 import { LayoutConfig } from './core/_config/layout.config';
-
-import {GraphQLModule} from './graphql/apollo.config';
-
 // Highlight JS
-
 import { HIGHLIGHT_OPTIONS, HighlightLanguage } from 'ngx-highlightjs';
 import * as typescript from 'highlight.js/lib/languages/typescript';
 import * as scss from 'highlight.js/lib/languages/scss';
 import * as xml from 'highlight.js/lib/languages/xml';
 import * as json from 'highlight.js/lib/languages/json';
-import { TestComponent } from './test/test.component';
+
+/* Import our extra components & modules */
 import { LoginComponent } from './public/login/login.component';
-import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
 import { TermsComponent } from './public/terms/terms.component';
 import { PrivacyComponent } from './public/privacy/privacy.component';
-
+import { AboutComponent } from './public/about/about.component';
+import { TeamComponent } from './public/team/team.component';
+import { ContactComponent } from './public/contact/contact.component';
+import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireStorageModule} from '@angular/fire/storage';
-import {BaseModule} from './private/base/base.module';
-import { AboutComponent } from './public/about/about.component';
-import { TeamComponent } from './public/team/team.component';
-import { ContactComponent } from './public/contact/contact.component';
+import {GraphQLModule} from './graphql/graphql.module';
+import {DataalertService} from './data/services/dataalert.service';
+import {RecresultsService} from './data/services/recresults.service';
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -108,11 +104,19 @@ export function hljsLanguages(): HighlightLanguage[] {
 }
 
 @NgModule({
-	declarations: [AppComponent, TestComponent, LoginComponent, PageNotFoundComponent, TermsComponent, PrivacyComponent, AboutComponent, TeamComponent, ContactComponent],
+	declarations: [
+		AppComponent,
+		LoginComponent,
+		TermsComponent,
+		PrivacyComponent,
+		AboutComponent,
+		TeamComponent,
+		ContactComponent,
+		PageNotFoundComponent
+	],
 	imports: [
 		BrowserAnimationsModule,
 		BrowserModule,
-		BaseModule,
 		AppRoutingModule,
 		HttpClientModule,
 		environment.isMockEnabled ? HttpClientInMemoryWebApiModule.forRoot(FakeApiService, {
@@ -146,8 +150,6 @@ export function hljsLanguages(): HighlightLanguage[] {
 		MenuConfigService,
 		PageConfigService,
 		KtDialogService,
-		DataalertService,
-		RecresultsService,
 		DataTableService,
 		SplashScreenService,
 		{
@@ -175,6 +177,8 @@ export function hljsLanguages(): HighlightLanguage[] {
 		HttpUtilsService,
 		TypesUtilsService,
 		LayoutUtilsService,
+		DataalertService,
+		RecresultsService
 	],
 	bootstrap: [AppComponent]
 })
